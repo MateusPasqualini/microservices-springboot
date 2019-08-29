@@ -1,6 +1,7 @@
 package br.com.southsystem.acccount.rest;
 
 import br.com.southsystem.acccount.entity.Account;
+import br.com.southsystem.acccount.model.request.AccountRequest;
 import br.com.southsystem.acccount.service.AccountService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,7 +32,7 @@ public class AccountResource {
     }
 
     @PostMapping
-    public ResponseEntity<Account> create(@RequestBody Account account) throws Exception {
+    public ResponseEntity<Account> create(@RequestBody AccountRequest account) throws Exception {
         return ResponseEntity.ok(service.create(account));
     }
 

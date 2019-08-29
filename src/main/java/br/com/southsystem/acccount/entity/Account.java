@@ -1,12 +1,12 @@
 package br.com.southsystem.acccount.entity;
 
 
+import br.com.southsystem.acccount.model.request.AccountRequest;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Document
@@ -22,6 +22,15 @@ public class Account {
     @LastModifiedDate
     private LocalDateTime modifyDate;
     private Boolean active;
+
+    public Account(AccountRequest accountRequest) {
+        this.number = accountRequest.getNumber();
+        this.agency = accountRequest.getAgency();
+        this.cpf = accountRequest.getCpf();
+    }
+
+    public Account() {
+    }
 
     public String getId() {
         return id;
